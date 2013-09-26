@@ -1,9 +1,8 @@
 production: &production
-  adapter: em_postgresql
-  encoding: unicode
-  database: goliathgrape
+  adapter: em_mysql2
+  database: pocket_vendor_server
   pool: 5
   username: root
-  password: 
+  password: qburst
 development:
   <<: *production

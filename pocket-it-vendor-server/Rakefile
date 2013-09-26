@@ -8,9 +8,8 @@ namespace :db do
   desc "loads database configuration in for other tasks to run"
   task :load_config do
     ActiveRecord::Base.configurations = db_conf
-    
     # drop and create need to be performed with a connection to the 'postgres' (system) database
-    ActiveRecord::Base.establish_connection db_conf["production"].merge('database' => 'postgres',
+    ActiveRecord::Base.establish_connection db_conf["production"].merge('database' => 'mysql',
                                                                        'schema_search_path' => 'public')
   end
   
@@ -33,11 +32,13 @@ namespace :db do
   desc 'Drops the database'
   task :drop => :load_config do
     ActiveRecord::Base.connection.drop_database db_conf['production']['database']
+    p "Dropped database #{db_conf['production']['database']}"
   end
   
   desc 'Creates the database'
   task :create => :load_config do
     ActiveRecord::Base.connection.create_database db_conf['production']['database']
+    p "Created database #{db_conf['production']['database']}"
   end
   
 end
