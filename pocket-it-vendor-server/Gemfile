@@ -1,7 +1,5 @@
 source "http://rubygems.org"
 
-#gem 'pg'
-#gem 'em-postgresql-adapter', :git => 'git://github.com/leftbee/em-postgresql-adapter.git'
 gem "activerecord", "~> 3.1.1"
 gem 'rack-fiber_pool',  :require => 'rack/fiber_pool'
 gem "mysql2"
@@ -10,3 +8,6 @@ gem 'em-synchrony', :git => 'git://github.com/igrigorik/em-synchrony.git',
                             
 gem 'grape'
 gem 'goliath'
+gem 'rack-oauth2-server'
+gem 'oauth2'
+gem 'songkick-oauth2-provider'

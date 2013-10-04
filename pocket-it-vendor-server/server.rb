@@ -1,6 +1,7 @@
 require "rubygems"
 require "bundler/setup"
 require 'goliath'
+require 'mysql2'
 require 'em-synchrony/activerecord'
 require 'grape'
 require "./tree"
