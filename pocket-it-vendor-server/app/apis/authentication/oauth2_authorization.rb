@@ -11,8 +11,8 @@ class Oauth2Authorization < ActiveRecord::Base
             when 'code'
               @instance.code ||= create_code(client)
             when 'token'
-              @instance.access_token_hash  ||= create_access_token
-              @instance.refresh_token_hash ||= create_refresh_token(client)
+              @instance.access_token  ||= create_access_token
+              @instance.refresh_token ||= create_refresh_token(client)
           end
 
           if attributes[:duration]
@@ -80,8 +80,8 @@ class Oauth2Authorization < ActiveRecord::Base
         end
 
         def generate_access_token
-          self.access_token_hash ||= self.create_access_token
-          save && access_token_hash
+          self.access_token ||= self.create_access_token
+          save && access_token
         end
 
 end
