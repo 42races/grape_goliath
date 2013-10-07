@@ -6,6 +6,7 @@ module PocketAPI
   module Authentication
     class User < Grape::API
     	Songkick::OAuth2::Provider.realm = 'My OAuth app'
+      version 'v1', :using => :path
       format :json		  	
 
          [:get, :post].each do |method|
